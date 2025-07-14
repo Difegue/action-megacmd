@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 LABEL version="1.0.0"
 LABEL repository="http://github.com/Difegue/action-megacmd"
@@ -11,7 +11,7 @@ LABEL com.github.actions.icon="upload-cloud"
 LABEL com.github.actions.color="red"
 
 RUN apt-get update && apt-get install curl gnupg2 -y && \
-curl https://mega.nz/linux/MEGAsync/Debian_10.0/amd64/megacmd-Debian_10.0_amd64.deb --output megacmd.deb && \
+curl https://mega.nz/linux/MEGAsync/Debian_11/amd64/megacmd_1.5.1-1.1_amd64.deb --output megacmd.deb && \
 echo path-include /usr/share/doc/megacmd/* > /etc/dpkg/dpkg.cfg.d/docker && \
 apt install ./megacmd.deb -y && \
 apt-get remove -y curl && \
